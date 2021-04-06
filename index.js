@@ -13,11 +13,11 @@ const btn = document.querySelector(".mybtn");
 name.addEventListener("blur", ()=>{
   // console.log(name.value);
   //validating the name
-  let re = /^[a-zA-Z]{1,10}$/;
+  let re = /^[a-zA-Z]{1,10}$/;    //regex
   let str = name.value.split(" "); //removing the spaces
   str = str.join("");
   // console.log(str);
-  if(re.test(str)){
+  if(re.test(str)){  //if the input matches the regex then we will consider it valid
     console.log("matched");
     name.classList.add("is-valid");
     name.classList.remove("is-invalid");
@@ -37,7 +37,7 @@ name.addEventListener("blur", ()=>{
 
 email.addEventListener("blur", ()=>{
   // console.log(email.value);
-  let re = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.(com|in)$/;
+  let re = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.(com|in)$/;   //regex for email
   let str = email.value;
       if(re.test(str)){
     console.log("matched 1");
@@ -55,7 +55,7 @@ email.addEventListener("blur", ()=>{
 
 contact.addEventListener("blur", ()=>{
   // console.log(contact.value);
-  let re = /^[0-9]{3}-[0-9]{4}-[0-9]{3}$/;
+  let re = /^[0-9]{3}-[0-9]{4}-[0-9]{3}$/;   //rehex for contact number
   let str = contact.value;
   // console.log(str);
     if(re.test(str)){
@@ -73,7 +73,7 @@ contact.addEventListener("blur", ()=>{
 
 function myfunc(e){
   // console.log(e.target.value);
-  if(20 - address.value.length < 0){
+  if(20 - address.value.length < 0){       //if the address length passes beyond the provided capacity we consider it invalid
     address.classList.add("is-invalid");
     address.classList.remove("is-valid");
     add_val = false;
@@ -88,8 +88,8 @@ function myfunc(e){
 address.addEventListener("input",myfunc);
 
 function submit(e){
-    e.preventDefault();
-    if(add_val && con_val && email_val && name_val){
+    e.preventDefault();   //preventing the default behaviour of the form
+    if(add_val && con_val && email_val && name_val){   //checking if all the fields are valid then only submit the perform
       name.value = "";
       address.value = "";
       email.value = "";
